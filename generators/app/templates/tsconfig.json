@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "rootDir": "./src",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "typeRoots": [ "./node_modules/@types" ],
+    "types": [ "jasmine", "node", "core-js", "protractor"]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
