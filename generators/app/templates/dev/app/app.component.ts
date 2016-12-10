@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 
-import './app.component.styl';
+import <% if(props.cssPreprocessor == 'Stylus') { %>'./app.component.styl'<% } %><% if(props.cssPreprocessor == 'Less') { %>'./app.component.less'<% } %>;
 
 @Component({
     selector: 'electron-app',

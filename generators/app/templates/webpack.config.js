@@ -11,7 +11,7 @@ var config = {
     },
 
     resolve: {
-        extensions: ['', '.ts', '.js', '.styl']
+        extensions: ['', '.ts', '.js', <% if(props.cssPreprocessor == 'Stylus') { %>'.styl'<% } %><% if(props.cssPreprocessor == 'Less') { %>'.less'<% } %>]
     },
 
     module: {
@@ -28,11 +28,15 @@ var config = {
                 test: /\.(png|jpe?g|gif|svg)$/,
                 exclude: /node_modules/,
                 loader: 'file-loader?name=img/[name].[ext]'
-            },
+            },<% if(props.cssPreprocessor == 'Stylus') { %>
             {
                 test: /\.styl$/,
                 loader: ExtractTextPlugin.extract('style-loader', 'css-loader', 'stylus-loader')
-            }
+            }<% } %><% if(props.cssPreprocessor == 'Less') { %>
+            {
+                test: /\.less$/,
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader', 'less-loader')
+            }<% } %>
         ]
     },
 

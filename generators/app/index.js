@@ -21,6 +21,11 @@ module.exports = yeoman.Base.extend({
       name: 'appName',
       message: 'What is the name of your application?',
       default: this.props.appName
+    }, {
+      type: 'list',
+      name: 'cssPreprocessor',
+      message: 'What css preprocessor would you like to use?',
+      choices: ['Less', 'Stylus']
     }];
 
     return this.prompt(prompts).then(function (props) {
@@ -36,9 +41,62 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copy(
-      this.templatePath('./dev'),
-      this.destinationPath('./dev')
+      this.templatePath('./dev/index.jade'),
+      this.destinationPath('./dev/index.jade')
     );
+
+    this.fs.copy(
+      this.templatePath('./dev/main.ts'),
+      this.destinationPath('./dev/main.ts')
+    );
+
+    this.fs.copy(
+      this.templatePath('./dev/polyfills.ts'),
+      this.destinationPath('./dev/polyfills.ts')
+    );
+
+    this.fs.copy(
+      this.templatePath('./dev/vendor.ts'),
+      this.destinationPath('./dev/vendor.ts')
+    );
+
+    this.fs.copy(
+      this.templatePath('./dev/app/app.component.jade'),
+      this.destinationPath('./dev/app/app.component.jade')
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('./dev/app/app.component.ts'),
+      this.destinationPath('./dev/app/app.component.ts'),
+      this
+    );
+
+    this.fs.copy(
+      this.templatePath('./dev/app/app.module.ts'),
+      this.destinationPath('./dev/app/app.module.ts')
+    );
+
+    this.fs.copy(
+      this.templatePath('./dev/app/app.routing.ts'),
+      this.destinationPath('./dev/app/app.routing.ts')
+    );
+
+    this.fs.copy(
+      this.templatePath('./dev/app/home'),
+      this.destinationPath('./dev/app/home')
+    );
+
+    if(this.props.cssPreprocessor == 'Stylus') {
+      this.fs.copy(
+        this.templatePath('./dev/app/app.component.styl'),
+        this.destinationPath('./dev/app/app.component.styl')
+      );
+    } else if(this.props.cssPreprocessor == 'Less') {
+      this.fs.copy(
+        this.templatePath('./dev/app/app.component.less'),
+        this.destinationPath('./dev/app/app.component.less')
+      );
+    }
 
     this.fs.copy(
       this.templatePath('./tsconfig.json'),
@@ -50,9 +108,10 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('./tslint.json')
     );
 
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('./webpack.config.js'),
-      this.destinationPath('./webpack.config.js')
+      this.destinationPath('./webpack.config.js'),
+      this
     );
 
     this.fs.copy(
