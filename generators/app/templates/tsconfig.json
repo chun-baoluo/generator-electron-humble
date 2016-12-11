@@ -4,12 +4,12 @@
     "target": "es5",
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
-    "rootDir": "./src",
+    "rootDir": "./dev",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "typeRoots": [ "./node_modules/@types" ],
-    "types": [ "jasmine", "node", "core-js", "protractor"]
+    "types": [ "node", "core-js"]
   },
   "exclude": [
     "node_modules"
