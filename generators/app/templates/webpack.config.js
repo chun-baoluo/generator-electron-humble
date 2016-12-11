@@ -11,7 +11,7 @@ var config = {
     },
 
     resolve: {
-        extensions: ['', '.ts', '.js', <% if(props.cssPreprocessor == 'Stylus') { %>'.styl'<% } %><% if(props.cssPreprocessor == 'Less') { %>'.less'<% } %>]
+        extensions: ['', '.ts', '.js', <% if(props.cssPreprocessor == 'Stylus') { %>'.styl'<% } %><% if(props.cssPreprocessor == 'Less') { %>'.less'<% } %><% if(props.cssPreprocessor == 'Sass') { %>'.scss'<% } %>]
     },
 
     module: {
@@ -36,6 +36,10 @@ var config = {
             {
                 test: /\.less$/,
                 loader: ExtractTextPlugin.extract('style-loader', 'css-loader', 'less-loader')
+            }<% } %><% if(props.cssPreprocessor == 'Sass') { %>
+            {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader', 'sass-loader')
             }<% } %>
         ]
     },

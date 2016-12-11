@@ -25,7 +25,7 @@ module.exports = yeoman.Base.extend({
       type: 'list',
       name: 'cssPreprocessor',
       message: 'What css preprocessor would you like to use?',
-      choices: ['Less', 'Stylus']
+      choices: ['Less', 'Sass', 'Stylus']
     }];
 
     return this.prompt(prompts).then(function (props) {
@@ -95,6 +95,11 @@ module.exports = yeoman.Base.extend({
       this.fs.copy(
         this.templatePath('./dev/app/app.component.less'),
         this.destinationPath('./dev/app/app.component.less')
+      );
+    } else if(this.props.cssPreprocessor == 'Sass') {
+      this.fs.copy(
+        this.templatePath('./dev/app/app.component.scss'),
+        this.destinationPath('./dev/app/app.component.scss')
       );
     }
 

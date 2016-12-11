@@ -29,10 +29,9 @@
     "pug": "^2.0.0-beta6",
     "pug-loader": "^2.3.0",
     "style-loader": "^0.13.1",<% if(props.cssPreprocessor == 'Stylus') { %>
-    "stylus": "^0.54.5",
     "stylus-loader": "^2.4.0",<% } %><% if(props.cssPreprocessor == 'Less') { %>
-    "less": "^2.6.1",
-    "less-loader": "^2.2.3",<% } %>
+    "less-loader": "^2.2.3",<% } %><% if(props.cssPreprocessor == 'Sass') { %>
+    "sass-loader": "^4.0.2",<% } %>
     "ts-loader": "^0.8.1",
     "tslint": "^3.13.0",
     "typescript": "^2.0.3",
