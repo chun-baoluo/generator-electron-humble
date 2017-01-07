@@ -31,15 +31,15 @@ var config = {
             },<% if(props.cssPreprocessor == 'Stylus') { %>
             {
                 test: /\.styl$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader', 'stylus-loader')
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!stylus-loader')
             }<% } %><% if(props.cssPreprocessor == 'Less') { %>
             {
                 test: /\.less$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader', 'less-loader')
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader')
             }<% } %><% if(props.cssPreprocessor == 'Sass') { %>
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('style-loader', 'css-loader', 'sass-loader')
+                loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
             }<% } %>
         ]
     },
