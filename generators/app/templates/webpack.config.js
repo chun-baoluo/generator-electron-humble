@@ -61,7 +61,7 @@ module.exports = webpackMerge(config, {
     output: {
         path: './app/res/',
         publicPath: './',
-        filename: '[name].js',
+        filename: '[name].[hash].js',
         chunkFilename: '[id].chunk.js'
     },
 
@@ -80,6 +80,6 @@ module.exports = webpackMerge(config, {
                 keep_fnames: true
             }
         }),
-        new ExtractTextPlugin('[name].css')
+        new ExtractTextPlugin('[name].[hash].css')
     ]
 });
