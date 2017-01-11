@@ -2,7 +2,8 @@
   "name": "<%= props.appName %>",
   "version": "0.0.1",
   "scripts": {
-    "start": "webpack --config ./webpack.config.js --progress --colors --profile --bail"
+    "start": "electron ./app/app.js",
+    "webpack": "webpack --config ./webpack.config.js --progress --colors --profile --bail"
   },
   "dependencies": {
     "@angular/common": "^2.4.2",

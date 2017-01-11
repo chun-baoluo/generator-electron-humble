@@ -143,7 +143,7 @@ module.exports = yeoman.Base.extend({
       var q = self.spawnCommand('npm', ['install'], {cwd: './app/'});
 
       q.on('close', function() {
-        var i = self.spawnCommand('npm', ['start'], {cwd: process.cwd()});
+        var i = self.spawnCommand('npm', ['run-script', 'webpack'], {cwd: process.cwd()});
       
         i.on('close', function() {
           self.log(chalk.green('Done! Have fun!'));
@@ -151,9 +151,5 @@ module.exports = yeoman.Base.extend({
       });
         
     }});
-  },
-
-  end: function() {
-    
   }
 });
