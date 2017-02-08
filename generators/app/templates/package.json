@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "start": "electron ./app/app.js",
-    "webpack": "webpack --config ./webpack.config.js --progress --colors --profile --bail"
+    "webpack": "webpack --config ./webpack.config.js --progress --colors --profile --bail",
+    "tslint": "tslint -c ./tslint.json 'dev/**/*.ts'; exit 0;"
   },
   "dependencies": {
     "@angular/common": "^2.4.2",
