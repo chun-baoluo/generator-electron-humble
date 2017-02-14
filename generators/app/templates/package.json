@@ -1,5 +1,5 @@
 {
-  "name": "<%= props.appName %>",
+  "name": "<%= appName %>",
   "version": "0.0.1",
   "scripts": {
     "start": "electron ./app/app.js",
@@ -31,11 +31,11 @@
     "html-webpack-plugin": "^2.26.0",
     "pug": "^2.0.0-beta6",
     "pug-loader": "^2.3.0",
-    "style-loader": "^0.13.1",<% if(props.cssPreprocessor == 'Stylus') { %>
+    "style-loader": "^0.13.1",<% if(cssPreprocessor == 'Stylus') { %>
     "stylus": "^0.54.5",
-    "stylus-loader": "^2.4.0",<% } %><% if(props.cssPreprocessor == 'Less') { %>
+    "stylus-loader": "^2.4.0",<% } %><% if(cssPreprocessor == 'Less') { %>
     "less": "^2.7.2",
-    "less-loader": "^2.2.3",<% } %><% if(props.cssPreprocessor == 'Sass') { %>
+    "less-loader": "^2.2.3",<% } %><% if(cssPreprocessor == 'Sass') { %>
     "node-sass": "^4.1.1",
     "sass-loader": "^4.0.2",<% } %>
     "ts-loader": "^0.8.1",
