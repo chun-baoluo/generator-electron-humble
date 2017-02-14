@@ -166,7 +166,9 @@ module.exports = class extends Generator {
         bower: false,
         npm: true
       });
+    };
 
+    end() {
       var q = this.spawnCommand('npm', ['install'], {cwd: './app/'});
 
       q.on('close', () => {
