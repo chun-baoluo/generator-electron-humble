@@ -10,7 +10,7 @@ module.exports = class extends Generator {
     };
 
     initializing() {
-      this.log(yosay('Yo! Welcome to the humble ' + chalk.blue('electron') + ' generator!'));
+      this.log(yosay('Yo! Welcome to the humble ' + chalk.blue.bold('electron') + ' generator!'));
 
       this.sourceRoot(path.join(__dirname, 'templates'));
 
@@ -177,7 +177,7 @@ module.exports = class extends Generator {
         });
       
         i.on('close', () => {
-          this.log(chalk.green('Done! Have fun!'));
+          this.log(chalk.green.bold('Done! Have fun!'));
         });
       });
     };
