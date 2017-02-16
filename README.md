@@ -1,14 +1,14 @@
 # generator-electron-humble
 
-Humble electron generator for yeoman. Electron + Webpack + Angular v2 + Typescript + Less/Sass/Stylus + Pug (Jade)
-
 ![alt tag](https://raw.githubusercontent.com/bakharevpavel/generator-electron-humble/master/generators/app/templates/dev/app/home/icon.png)
+
+Humble electron generator for Yeoman. Electron + Webpack + Angular v2 + Typescript + Less/Sass/Stylus + Pug (Jade)
 
 ## Installation
 
 ```sh
 
-$ npm install -g generator-electron-humble
+	$ npm install -g generator-electron-humble
 
 ```
 
@@ -16,7 +16,7 @@ $ npm install -g generator-electron-humble
 
 ```sh
 
-$ yo electron-humble
+	$ yo electron-humble
 
 ```
 
