@@ -4,7 +4,7 @@ import <% if(cssPreprocessor == 'Stylus') { %>'./app.component.styl'<% } %><% if
 
 @Component({
     selector: 'electron-app',
-    template: require('./app.component.jade')()
+    template: <% if(templateEngine == true) { %>require('./app.component.pug')()<% } else { %> require('./app.component.html') <% } %>
 })
 
 export class AppComponent {

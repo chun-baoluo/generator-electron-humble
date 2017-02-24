@@ -19,11 +19,15 @@ var config = {
             {
                 test: /\.ts$/,
                 loader: 'ts'
-            },
+            },<% if(templateEngine == true) { %>
             {
-                test: /\.jade$/,
+                test: /\.(jade|pug)$/,
                 loader: 'pug-loader'
-            },
+            }<% } else { %>
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
+            }<% } %>,
             {
                 test: /\.(png|jpe?g|gif|svg)$/,
                 exclude: /node_modules/,
@@ -50,7 +54,7 @@ var config = {
         }),
 
         new HtmlWebpackPlugin({
-            template: 'dev/index.jade'
+            template: <% if(templateEngine == true) { %>'dev/index.pug'<% } else { %>'dev/index.html'<% } %>
         })
     ]
 };

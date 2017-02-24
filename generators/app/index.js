@@ -44,30 +44,40 @@ module.exports = class extends Generator {
           name    : 'Stylus',
           checked : false
         }]
+      }, {
+        type: 'confirm',
+        name: 'templateEngine',
+        message: 'Would you like to use Pug (pug) template engine?',
+        default: true
       }];
 
       this.prompt(prompts).then(function(answers) {
-        if(answers.appName) {
-          this.data.appName = answers.appName;
-        }
-        if(answers.cssPreprocessor) {
-          this.data.cssPreprocessor = answers.cssPreprocessor;
-        }
+        this.data.appName = answers.appName;
+        this.data.cssPreprocessor = answers.cssPreprocessor;
+        this.data.templateEngine = answers.templateEngine;
 
         done();
       }.bind(this));
     };
 
     writing() {
+
       this.fs.copy(
         this.templatePath('./app'),
         this.destinationPath('./app')
       );
-
-      this.fs.copy(
-        this.templatePath('./dev/index.jade'),
-        this.destinationPath('./dev/index.jade')
-      );
+      
+      if(this.data.templateEngine == true) {
+        this.fs.copy(
+          this.templatePath('./dev/index.pug'),
+          this.destinationPath('./dev/index.pug')
+        );
+      } else {
+        this.fs.copy(
+          this.templatePath('./dev/index.html'),
+          this.destinationPath('./dev/index.html')
+        );        
+      };
 
       this.fs.copy(
         this.templatePath('./dev/main.ts'),
@@ -84,10 +94,17 @@ module.exports = class extends Generator {
         this.destinationPath('./dev/vendor.ts')
       );
 
-      this.fs.copy(
-        this.templatePath('./dev/app/app.component.jade'),
-        this.destinationPath('./dev/app/app.component.jade')
-      );
+      if(this.data.templateEngine == true) {
+        this.fs.copy(
+          this.templatePath('./dev/app/app.component.pug'),
+          this.destinationPath('./dev/app/app.component.pug')
+        );
+      } else {
+        this.fs.copy(
+          this.templatePath('./dev/app/app.component.html'),
+          this.destinationPath('./dev/app/app.component.html')
+        );       
+      };
 
       this.fs.copyTpl(
         this.templatePath('./dev/app/app.component.ts'),
@@ -103,11 +120,6 @@ module.exports = class extends Generator {
       this.fs.copy(
         this.templatePath('./dev/app/app.routing.ts'),
         this.destinationPath('./dev/app/app.routing.ts')
-      );
-
-      this.fs.copy(
-        this.templatePath('./dev/app/home'),
-        this.destinationPath('./dev/app/home')
       );
 
       if(this.data.cssPreprocessor == 'Stylus') {
@@ -126,6 +138,29 @@ module.exports = class extends Generator {
           this.destinationPath('./dev/app/app.component.scss')
         );
       }
+
+      if(this.data.templateEngine == true) {
+        this.fs.copy(
+          this.templatePath('./dev/app/home/home.component.pug'),
+          this.destinationPath('./dev/app/home/home.component.pug')
+        );
+      } else {
+        this.fs.copy(
+          this.templatePath('./dev/app/home/home.component.html'),
+          this.destinationPath('./dev/app/home/home.component.html')
+        );
+      };
+
+      this.fs.copyTpl(
+        this.templatePath('./dev/app/home/home.component.ts'),
+        this.destinationPath('./dev/app/home/home.component.ts'),
+        this.data
+      );
+
+      this.fs.copy(
+        this.templatePath('./dev/app/home/icon.png'),
+        this.destinationPath('./dev/app/home/icon.png')
+      );
 
       this.fs.copy(
         this.templatePath('./tsconfig.json'),
