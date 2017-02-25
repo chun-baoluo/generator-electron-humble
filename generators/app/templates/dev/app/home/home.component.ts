@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     selector: 'home-component',
     template: <% if(templateEngine == true) { %>require('./home.component.pug')()<% } else { %> require('./home.component.html') <% } %>
 })
-
 export class HomeComponent {
-
+	<% if(materialDesign == true) { %>
+	private pressed: boolean = false;<% } %>
 }

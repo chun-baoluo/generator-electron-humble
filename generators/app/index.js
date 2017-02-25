@@ -47,7 +47,12 @@ module.exports = class extends Generator {
       }, {
         type: 'confirm',
         name: 'templateEngine',
-        message: 'Would you like to use Pug (pug) template engine?',
+        message: 'Would you like to use Pug (Jade) template engine?',
+        default: true
+      }, {
+        type: 'confirm',
+        name: 'materialDesign',
+        message: 'Would you like to use Angular 2 Material?',
         default: true
       }];
 
@@ -55,6 +60,7 @@ module.exports = class extends Generator {
         this.data.appName = answers.appName;
         this.data.cssPreprocessor = answers.cssPreprocessor;
         this.data.templateEngine = answers.templateEngine;
+        this.data.materialDesign = answers.materialDesign;
 
         done();
       }.bind(this));
@@ -112,9 +118,10 @@ module.exports = class extends Generator {
         this.data
       );
 
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('./dev/app/app.module.ts'),
-        this.destinationPath('./dev/app/app.module.ts')
+        this.destinationPath('./dev/app/app.module.ts'),
+        this.data
       );
 
       this.fs.copy(
@@ -140,14 +147,16 @@ module.exports = class extends Generator {
       }
 
       if(this.data.templateEngine == true) {
-        this.fs.copy(
+        this.fs.copyTpl(
           this.templatePath('./dev/app/home/home.component.pug'),
-          this.destinationPath('./dev/app/home/home.component.pug')
+          this.destinationPath('./dev/app/home/home.component.pug'),
+          this.data
         );
       } else {
-        this.fs.copy(
+        this.fs.copyTpl(
           this.templatePath('./dev/app/home/home.component.html'),
-          this.destinationPath('./dev/app/home/home.component.html')
+          this.destinationPath('./dev/app/home/home.component.html'),
+          this.data
         );
       };
 

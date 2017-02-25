@@ -1,2 +1,6 @@
 div
-	img(src=require('./icon.png'))
+	img(src=require('./icon.png'))<% if(materialDesign == true) { %>
+div
+	button(md-raised-button, color="primary", (click)="pressed = !pressed;") Press me
+div(*ngIf="pressed")
+	h1 Allo' Allo'<% } %>

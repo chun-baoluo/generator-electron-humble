@@ -1,3 +1,9 @@
 <div>
 	<img src="./icon.png">
+</div><% if(materialDesign == true) { %>
 <div>
+	<button md-raised-button color="primary" (click)="pressed = !pressed;">Press me</button>
+</div>
+<div *ngIf="pressed">
+	<h1> Allo' Allo'</h1>
+</div><% } %>
