@@ -4,10 +4,6 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var config = {
-    devServer: {
-        inline: true
-    },
-
     entry: {
         polyfills: './dev/polyfills.ts',
         vendor: './dev/vendor.ts',
@@ -51,11 +47,6 @@ var config = {
             }<% } %>
         ]
     },
-
-    node: {
-        __dirname: false,
-        __filename: false
-    },
     
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
@@ -72,9 +63,8 @@ module.exports = webpackMerge(config, {
     devtool: 'source-map',
 
     output: {
-        path: __dirname + '/app/res/',
-        //publicPath: './',
-        publicPath: 'http://localhost:8080/',
+        path: __dirname  + '/app/res/',
+        publicPath: './',
         filename: '[name].js',
         chunkFilename: '[id].chunk.js'
     },

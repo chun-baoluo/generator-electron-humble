@@ -7,6 +7,7 @@ const debug = true;
 
 if(debug == true) {
 	require('electron-debug')();
+	require('electron-reload')(__dirname + '/res/')
 }
 
 let mainWindow = null;
