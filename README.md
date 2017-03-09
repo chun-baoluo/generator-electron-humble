@@ -41,17 +41,17 @@ Generated project has the following structure:
 	│   ├── ./app/app.js
 	│   ├── ./app/package.json
 	│   └── ./app/res # Resources folder. Webpack sends processed files here.
-	│       ├── ./app/res/app.[hash].css
-	│       ├── ./app/res/app.[hash].css.map
-	│       ├── ./app/res/app.[hash].js
-	│       ├── ./app/res/app.[hash].js.map
+	│       ├── ./app/res/app.css
+	│       ├── ./app/res/app.css.map
+	│       ├── ./app/res/app.js
+	│       ├── ./app/res/app.js.map
 	│       ├── ./app/res/img
 	│       │   └── ./app/res/img/icon.png
 	│       ├── ./app/res/index.html
-	│       ├── ./app/res/polyfills.[hash].js
-	│       ├── ./app/res/polyfills.[hash].js.map
-	│       ├── ./app/res/vendor.[hash].js
-	│       └── ./app/res/vendor.[hash].js.map
+	│       ├── ./app/res/polyfills.js
+	│       ├── ./app/res/polyfills.js.map
+	│       ├── ./app/res/vendor.js
+	│       └── ./app/res/vendor.js.map
 	├── ./dev # Development folder. Stores Angular2 project with typescript, jade and less/sass/stylus files.
 	│   ├── ./dev/app
 	│   │   ├── ./dev/app/app.component.jade
