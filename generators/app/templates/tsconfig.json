@@ -11,7 +11,8 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "typeRoots": [ "./node_modules/@types" ],
-    "types": [ "node", "core-js"]
+    "types": [ "node", "core-js"],
+    "lib": ["es2015", "dom"]
   },
   "exclude": [
     "node_modules",

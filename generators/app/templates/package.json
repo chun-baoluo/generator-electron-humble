@@ -8,25 +8,24 @@
     "tslint": "tslint -c ./tslint.json 'dev/**/*.ts'; exit 0;"
   },
   "dependencies": {
-    "@angular/common": "^2.4.2",
-    "@angular/compiler": "^2.4.2",
-    "@angular/core": "^2.4.2",
-    "@angular/forms": "^2.4.2",
-    "@angular/http": "^2.4.2",
-    "@angular/platform-browser": "^2.4.2",
-    "@angular/platform-browser-dynamic": "^2.4.2",
-    "@angular/router": "^3.4.2",<% if(materialDesign == true) { %>
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/forms": "^4.0.0",
+    "@angular/http": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@angular/router": "^4.0.0",<% if(materialDesign == true) { %>
     "@angular/material": "^2.0.0-beta.2",<% } %>
     "@types/core-js": "^0.9.35",
     "core-js": "^2.4.1",
     "reflect-metadata": "^0.1.9",
-    "rxjs": "5.0.3",
-    "typescript": "^2.1.4",
-    "zone.js": "^0.7.4"
+    "rxjs": "5.2.0",
+    "zone.js": "^0.8.5"
   },
   "devDependencies": {
-    "@types/node": "^6.0.58",
-    "codelyzer": "2.0.0-beta.4",
+    "@types/node": "^7.0.12",
+    "codelyzer": "3.0.0-beta.4",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^2.0.0",
     "file-loader": "^0.9.0",
@@ -43,7 +42,7 @@
     "node-sass": "^4.1.1",
     "sass-loader": "^4.0.2",<% } %>
     "ts-loader": "^0.8.1",
-    "tslint": "^4.3.1",
+    "tslint": "^4.5.1",
     "typescript": "^2.2.1",
     "webpack": "^2.2.1",
     "webpack-merge": "^2.3.1"
