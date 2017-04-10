@@ -7,14 +7,15 @@
     "electron": "electron app.js",
     "build": "./node_modules/.bin/electron-rebuild -p -f -m . -w node-hid -e node_modules/electron-prebuilt",
     "postinstall": "electron-rebuild --pre-gyp-fix --force",
-    "recompile": "node-gyp rebuild --target=1.4.15 --dist-url=https://atom.io/download/atom-shell"
+    "recompile": "node-gyp rebuild --target=1.6.2 --dist-url=https://atom.io/download/atom-shell"
   },
   "dependencies": {
-    "electron": "^1.4.15"
+    "electron": "^1.6.2"
   },
   "devDependencies": {
     "devtron": "^1.4.0",
     "electron-debug": "^1.1.0",
-    "electron-rebuild": "^1.5.5"
+    "electron-rebuild": "^1.5.7",
+    "electron-reload": "^1.1.0"
   }
 }

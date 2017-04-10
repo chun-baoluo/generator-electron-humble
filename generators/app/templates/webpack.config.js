@@ -19,6 +19,9 @@ var config = {
             {
                 test: /\.ts$/,
                 loader: 'ts-loader'
+            },            {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
             },<% if(templateEngine == true) { %>
             {
                 test: /\.(jade|pug)$/,
@@ -32,7 +35,10 @@ var config = {
                 test: /\.(png|jpe?g|gif|svg)$/,
                 exclude: /node_modules/,
                 loader: 'file-loader?name=img/[name].[ext]'
-            },<% if(cssPreprocessor == 'Stylus') { %>
+            }, {
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                loader: 'file-loader?name=fonts/[name].[ext]'
+            }, <% if(cssPreprocessor == 'Stylus') { %>
             {
                 test: /\.styl$/,
                 loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader!stylus-loader' })
