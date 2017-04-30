@@ -27,6 +27,7 @@ Humble electron generator for Yeoman. Electron + Webpack + Angular v2 + Typescri
 	npm start # Launches the app.
 	npm run-script tslint # Starts code check with tslint.
 	npm run-script webpack # Initiates webpack rebuild of the project.
+	npm run watch # Watches changes in dev folder using webpack-dev-server.
 
 ```
 

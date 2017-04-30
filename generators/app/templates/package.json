@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "start": "electron ./app/app.js",
-    "watch": "node_modules/.bin/webpack-dev-server --progress --colors",
+    "watch": "webpack-dev-server --progress --colors",
     "webpack": "webpack --config ./webpack.config.js --progress --colors --profile --bail",
     "tslint": "tslint -c ./tslint.json 'dev/**/*.ts'; exit 0;"
   },
