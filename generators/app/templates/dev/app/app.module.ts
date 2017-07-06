@@ -19,7 +19,7 @@ import { MaterialModule } from '@angular/material';<% } %>
         HttpModule,
         JsonpModule,
         routing<% if(materialDesign == true) { %>,
-        MaterialModule.forRoot()<% } %>
+        MaterialModule<% } %>
     ],
     providers: [routingProviders],
     bootstrap: [AppComponent]
