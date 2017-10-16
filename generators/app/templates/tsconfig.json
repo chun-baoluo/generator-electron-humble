@@ -10,6 +10,7 @@
     "moduleResolution": "node",
     "noUnusedLocals": false,
     "noUnusedParameters": false,
+    "noStrictGenericChecks": true,
     "typeRoots": [ "./node_modules/@types" ],
     "types": [ "node", "core-js"],
     "lib": ["es2015", "dom"]

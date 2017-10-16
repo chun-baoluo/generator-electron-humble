@@ -1,6 +1,6 @@
 {
   "name": "generator-electron-humble",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "description": "Humble electron generator. Electron + Webpack + Angular v2 + Typescript + Less/Sass/Stylus + Pug (Jade)",
   "files": [
     "generators"
@@ -26,9 +26,9 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "chalk": "^1.1.3",
-    "yeoman-generator": "^1.1.1",
-    "yosay": "^2.0.0"
+    "chalk": "^2.1.0",
+    "yeoman-generator": "^2.0.1",
+    "yosay": "^2.0.1"
   },
   "repository": {
     "type": "git",

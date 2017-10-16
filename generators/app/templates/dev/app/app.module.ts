@@ -6,7 +6,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { routing, routingProviders } from './app.routing';
 import { HomeComponent } from './home/home.component';<% if(materialDesign == true) { %>
-import { MaterialModule } from '@angular/material';<% } %>
+import { MatButtonModule } from '@angular/material';<% } %>
 
 @NgModule({
     declarations: [
@@ -19,7 +19,7 @@ import { MaterialModule } from '@angular/material';<% } %>
         HttpModule,
         JsonpModule,
         routing<% if(materialDesign == true) { %>,
-        MaterialModule<% } %>
+        MatButtonModule<% } %>
     ],
     providers: [routingProviders],
     bootstrap: [AppComponent]
