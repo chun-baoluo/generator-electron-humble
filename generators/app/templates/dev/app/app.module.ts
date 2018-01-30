@@ -41,14 +41,17 @@ export class AppModule {<% if(hmr) { %>
         };
 
         this.appRef.tick();
+        
         delete store.state;
         delete store.restoreInputValues;
     };
     
     hmrOnDestroy(store: any) {
-        var cmpLocation = this.appRef.components.map((cmp) => cmp.location.nativeElement);
+        let cmpLocation = this.appRef.components.map((cmp) => cmp.location.nativeElement);
 
         store.disposeOldHosts = createNewHosts(cmpLocation);
+        
+        store.state = {};
 
         store.restoreInputValues  = createInputTransfer();
 
