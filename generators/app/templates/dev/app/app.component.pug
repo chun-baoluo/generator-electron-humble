@@ -3,3 +3,13 @@ div(class="header")
 
 div(class="content")
 	router-outlet
+<% if(hmr) { %>
+div(class="content")
+	br
+	div Test Angular HMR! Write some text in the input below, change code in Home folder and see results!
+	br
+	div
+	input(matInput, [(ngModel)]="text")
+	br
+	div You wrote: {{ text }}
+<%}%>

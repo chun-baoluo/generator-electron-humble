@@ -54,6 +54,11 @@ module.exports = class extends Generator {
         name: 'materialDesign',
         message: 'Would you like to use Angular 2 Material?',
         default: true
+      }, {
+        type: 'confirm',
+        name: 'hmr',
+        message: 'Would you like to use Angular HMR?',
+        default: true
       }];
 
       this.prompt(prompts).then(function(answers) {
@@ -61,6 +66,7 @@ module.exports = class extends Generator {
         this.data.cssPreprocessor = answers.cssPreprocessor;
         this.data.templateEngine = answers.templateEngine;
         this.data.materialDesign = answers.materialDesign;
+        this.data.hmr = answers.hmr;
 
         done();
       }.bind(this));
@@ -72,8 +78,8 @@ module.exports = class extends Generator {
         this.templatePath('./app'),
         this.destinationPath('./app')
       );
-      
-      if(this.data.templateEngine == true) {
+
+      if(this.data.templateEngine) {
         this.fs.copy(
           this.templatePath('./dev/index.pug'),
           this.destinationPath('./dev/index.pug')
@@ -82,12 +88,13 @@ module.exports = class extends Generator {
         this.fs.copy(
           this.templatePath('./dev/index.html'),
           this.destinationPath('./dev/index.html')
-        );        
+        );
       };
 
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('./dev/main.ts'),
-        this.destinationPath('./dev/main.ts')
+        this.destinationPath('./dev/main.ts'),
+        this.data
       );
 
       this.fs.copy(
@@ -101,15 +108,17 @@ module.exports = class extends Generator {
       );
 
       if(this.data.templateEngine == true) {
-        this.fs.copy(
+        this.fs.copyTpl(
           this.templatePath('./dev/app/app.component.pug'),
-          this.destinationPath('./dev/app/app.component.pug')
+          this.destinationPath('./dev/app/app.component.pug'),
+          this.data
         );
       } else {
-        this.fs.copy(
+        this.fs.copyTpl(
           this.templatePath('./dev/app/app.component.html'),
-          this.destinationPath('./dev/app/app.component.html')
-        );       
+          this.destinationPath('./dev/app/app.component.html'),
+          this.data
+        );
       };
 
       this.fs.copyTpl(
@@ -213,13 +222,13 @@ module.exports = class extends Generator {
     };
 
     end() {
-      var q = this.spawnCommand('npm', ['install'], {cwd: './app/'});
+      let q = this.spawnCommand('npm', ['install'], {cwd: './app/'});
 
       q.on('close', () => {
-        var i = this.spawnCommand('npm', ['run-script', 'webpack'], {
+        let i = this.spawnCommand('npm', ['run', 'build:prod'], {
           cwd: process.cwd()
         });
-      
+
         i.on('close', () => {
           this.log(chalk.green.bold('Done! Have fun!'));
         });

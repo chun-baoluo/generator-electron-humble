@@ -1,21 +1,22 @@
 {
-  "name": "<%= appName %>",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "start": "./node_modules/.bin/electron app.js",
-    "electron": "electron app.js",
-    "build": "./node_modules/.bin/electron-rebuild -p -f -m . -w node-hid -e node_modules/electron-prebuilt",
-    "postinstall": "electron-rebuild --pre-gyp-fix --force",
-    "recompile": "node-gyp rebuild --target=1.8.1 --dist-url=https://atom.io/download/atom-shell"
-  },
-  "dependencies": {
-    "electron": "^1.8.1"
-  },
-  "devDependencies": {
-    "devtron": "^1.4.0",
-    "electron-debug": "^1.4.0",
-    "electron-rebuild": "^1.6.0",
-    "electron-reload": "^1.2.2"
-  }
+    "name": "<%= appName %>",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+      "start": "./node_modules/electron/dist/electron ./index.js prod",
+      "start:dev": "./node_modules/electron/dist/electron ./index.js dev",
+      "start:prod": "./node_modules/electron/dist/electron ./index.js prod",
+      "build": "./node_modules/.bin/electron-rebuild -p -f -m . -w node-hid -e node_modules/electron-prebuilt",
+      "postinstall": "electron-rebuild --pre-gyp-fix --force",
+      "recompile": "node-gyp rebuild --target=1.8.1 --dist-url=https://atom.io/download/atom-shell"
+    },
+    "dependencies": {
+        "electron": "^1.8.1"
+    },
+    "devDependencies": {
+        "devtron": "^1.4.0",
+        "electron-debug": "^1.4.0",
+        "electron-rebuild": "^1.6.0",
+        "electron-reload": "^1.2.2"
+    }
 }

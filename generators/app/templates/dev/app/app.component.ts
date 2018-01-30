@@ -9,5 +9,6 @@ import <% if(cssPreprocessor == 'Stylus') { %>'./app.component.styl'<% } %><% if
 })
 
 export class AppComponent {
-
+    <% if(hmr) { %>
+    private text: string = '';<% } %>
 }

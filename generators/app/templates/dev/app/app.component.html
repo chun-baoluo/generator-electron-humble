@@ -5,3 +5,15 @@
 <div class="content">
 	<router-outlet></router-outlet>
 </div>
+<% if(hmr) { %>
+<div class="content">
+	<br/>
+	<div>Test Angular HMR! Write some text in the input below, change code in Home's folder and see results!</div>
+	<br/>
+	<div>
+		<input matInput [(ngModel)]="text"/>
+	</div>
+	<br/>
+	<div>You wrote: {{ text }}</div>
+</div>
+<%}%>

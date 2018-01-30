@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
     template: <% if(templateEngine == true) { %>require('./home.component.pug')()<% } else { %> require('./home.component.html') <% } %>
 })
 export class HomeComponent {
-	<% if(materialDesign == true) { %>
+	<% if(materialDesign) { %>
 	private pressed: boolean = false;<% } %>
 }

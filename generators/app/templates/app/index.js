@@ -23,7 +23,7 @@ function createWindow() {
 
 	});
 
-	win.loadURL(`file://${__dirname}/res/index.html`);
+	win.loadURL(process.argv[2] == 'dev' ? 'http://localhost:8080' : `file://${__dirname}/res/index.html`);
 
 	win.webContents.session.clearCache(() => {});
 
