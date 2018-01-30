@@ -25,10 +25,10 @@ Humble electron generator for Yeoman. Electron + Webpack + Angular v2 + Typescri
 ```sh
 
 	npm start # Launches the app.
-	npm run start:prod # Same as npm start (expects build:prod to be launched).
-	npm run start:dev # Launches the app in dev mode (expects build:dev to be launched).
-	npm run build:prod # Initiates rebuild of the project for production.
-	npm run build:dev # Watches changes in dev folder using webpack-dev-server.
+	npm run start:prod # Same as npm start (expects you to run build:prod at least once).
+	npm run start:dev # Launches the app in dev mode (expects you to run build:dev separately).
+	npm run build:prod # Initiates project's rebuild for production.
+	npm run build:dev # Watches project's folder for changes and launches hot-reload using webpack-dev-server.
 	npm run-script tslint # Starts code check with tslint.
 
 ```

@@ -3,9 +3,9 @@ const electron = require('electron');
 const app = electron.app;
 const ipcMain = electron.ipcMain;
 
-const debug = true;
+const dev = (process.argv[2] == 'dev');
 
-if(debug == true) {
+if(dev) {
 	require('electron-debug')();
 	require('electron-reload')(__dirname + '/res/')
 }
@@ -23,7 +23,7 @@ function createWindow() {
 
 	});
 
-	win.loadURL(process.argv[2] == 'dev' ? 'http://localhost:8080' : `file://${__dirname}/res/index.html`);
+	win.loadURL(dev ? 'http://localhost:8080/' : `file://${__dirname}/res/index.html`);
 
 	win.webContents.session.clearCache(() => {});
 

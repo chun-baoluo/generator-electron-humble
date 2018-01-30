@@ -21,8 +21,8 @@
     "@angular/router": "^5.1.3",<% if(materialDesign) { %>
     "@angular/material": "^5.0.3",
     "@angular/cdk": "^5.0.3",
-    "material-design-icons": "^3.0.1",<% } %><% if(hmr) { %>
-    "@angularclass/hmr": "^2.1.3",<% } %>
+    "material-design-icons": "^3.0.1",<% } %>
+    "@angularclass/hmr": "^2.1.3",
     "core-js": "^2.5.3",
     "reflect-metadata": "^0.1.10",
     "rxjs": "5.5.6",

@@ -22,7 +22,7 @@ module.exports = env => {
             contentBase: __dirname  + '/app/res/',
             hot: true
         },
-        
+
         entry: {
             polyfills: './dev/polyfills.ts',
             vendor: './dev/vendor.ts',
@@ -77,7 +77,7 @@ module.exports = env => {
 
         output: {
             path: __dirname  + '/app/res/',
-            publicPath: '/',
+            publicPath: env.type == 'dev' ? '/' : './',
             filename: '[name].js',
             chunkFilename: '[id].chunk.js'
         },

@@ -1,15 +1,9 @@
 div(class="header")
 	h1 Humble electron generator
-
 div(class="content")
 	router-outlet
-<% if(hmr) { %>
 div(class="content")
-	br
-	div Test Angular HMR! Write some text in the input below, change code in Home folder and see results!
-	br
-	div
-	input(matInput, [(ngModel)]="text")
-	br
-	div You wrote: {{ text }}
-<%}%>
+	div(class="margin-vertical-5") Test Angular HMR in dev mode! Write some text in the input below, change code in Home folder, wait until project's rebuild is finished and see results!
+	div(class="margin-vertical-5")
+		input(<% if(materialDesign) { %>matInput, <% } %>[(ngModel)]="text")
+	div(class="margin-vertical-5") You wrote: {{ text }}

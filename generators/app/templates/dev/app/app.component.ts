@@ -5,10 +5,9 @@ import <% if(cssPreprocessor == 'Stylus') { %>'./app.component.styl'<% } %><% if
 
 @Component({
     selector: 'electron-app',
-    template: <% if(templateEngine == true) { %>require('./app.component.pug')()<% } else { %> require('./app.component.html') <% } %>
+    template: <% if(templateEngine) { %>require('./app.component.pug')()<% } else { %> require('./app.component.html') <% } %>
 })
 
 export class AppComponent {
-    <% if(hmr) { %>
-    private text: string = '';<% } %>
-}
+    private text: string = '';
+};

@@ -54,11 +54,6 @@ module.exports = class extends Generator {
         name: 'materialDesign',
         message: 'Would you like to use Angular 2 Material?',
         default: true
-      }, {
-        type: 'confirm',
-        name: 'hmr',
-        message: 'Would you like to use Angular HMR?',
-        default: true
       }];
 
       this.prompt(prompts).then(function(answers) {
@@ -66,7 +61,6 @@ module.exports = class extends Generator {
         this.data.cssPreprocessor = answers.cssPreprocessor;
         this.data.templateEngine = answers.templateEngine;
         this.data.materialDesign = answers.materialDesign;
-        this.data.hmr = answers.hmr;
 
         done();
       }.bind(this));
