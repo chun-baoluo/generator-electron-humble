@@ -7,7 +7,7 @@
 <div class="content">
 	<div class="margin-vertical-5">Test Angular HMR in dev mode! Write some text in the input below, change code in Home folder, wait until project's rebuild is finished and see results!</div>
 	<div class="margin-vertical-5">
-		<input matInput [(ngModel)]="text"/>
+		<input <% if(materialDesign) { %>matInput <% } %>[(ngModel)]="text"/>
 	</div>
 	<div class="margin-vertical-5">You wrote: {{ text }}</div>
 </div>
