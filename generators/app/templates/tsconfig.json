@@ -13,7 +13,8 @@
     "noStrictGenericChecks": true,
     "typeRoots": [ "./node_modules/@types" ],
     "types": [ "node", "core-js"],
-    "lib": ["es2015", "dom"]
+    "lib": ["es2015", "dom"]<% if(frontendType == 'React') { %>,
+    "jsx": "react"<% } %>
   },
   "exclude": [
     "node_modules",

@@ -9,7 +9,7 @@
     "build:prod": "webpack --config ./webpack.config.js --progress --colors --profile --bail --env.type=prod",
     "tslint": "tslint -c ./tslint.json 'dev/**/*.ts'; exit 0;"
   },
-  "dependencies": {
+  "dependencies": {<% if(frontendType == 'Angular') { %>
     "@angular/animations": "^5.1.3",
     "@angular/common": "^5.1.3",
     "@angular/compiler": "^5.1.3",
@@ -22,15 +22,20 @@
     "@angular/material": "^5.0.3",
     "@angular/cdk": "^5.0.3",
     "material-design-icons": "^3.0.1",<% } %>
-    "@angularclass/hmr": "^2.1.3",
-    "core-js": "^2.5.3",
+    "@angularclass/hmr": "^2.1.3",<% } %>
+    "core-js": "^2.5.3",<% if(frontendType == 'React') { %>
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",<% if(materialDesign) { %>
+    "@material-ui/core": "^1.2.3",<% } } %>
     "reflect-metadata": "^0.1.10",
     "rxjs": "5.5.6",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
     "@types/core-js": "^0.9.44",
-    "@types/node": "^9.3.0",
+    "@types/node": "^9.3.0",<% if(frontendType == 'React') { %>
+    "@types/react": "^16.4.1",
+    "@types/react-dom": "^16.0.6",<% } %>
     "codelyzer": "^4.0.2",
     "css-loader": "^0.28.8",
     "extract-text-webpack-plugin": "^3.0.2",

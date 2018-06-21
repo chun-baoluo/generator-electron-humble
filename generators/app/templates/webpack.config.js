@@ -10,7 +10,7 @@ module.exports = env => {
             name: ['app', 'vendor', 'polyfills']
         }),
         new HtmlWebpackPlugin({
-            template: <% if(templateEngine == true) { %>'dev/index.pug'<% } else { %>'dev/index.html'<% } %>
+            template: <% if(templateEngine == true && frontendType == 'Angular') { %>'dev/index.pug'<% } else { %>'dev/index.html'<% } %>
         }),
         new webpack.DefinePlugin({
             PRODUCTION: JSON.stringify(env.type == 'prod')
@@ -21,27 +21,29 @@ module.exports = env => {
         devServer: {
             contentBase: __dirname  + '/app/res/',
             hot: true
-        },
+        },<% if(frontendType == 'React') { %>
+
+        entry: "./dev/App.tsx",<% } else if(frontendType == 'Angular') { %>
 
         entry: {
             polyfills: './dev/polyfills.ts',
             vendor: './dev/vendor.ts',
             app: './dev/main.ts'
-        },
+        },<% } %>
 
         resolve: {
-            extensions: ['*', '.ts', '.js', <% if(cssPreprocessor == 'Stylus') { %>'.styl'<% } %><% if(cssPreprocessor == 'Less') { %>'.less'<% } %><% if(cssPreprocessor == 'Sass') { %>'.scss'<% } %>]
+            extensions: ['*', '.ts'<% if(frontendType == 'React') { %>, '.tsx'<% } %>, '.js', <% if(cssPreprocessor == 'Stylus') { %>'.styl'<% } %><% if(cssPreprocessor == 'Less') { %>'.less'<% } %><% if(cssPreprocessor == 'Sass') { %>'.scss'<% } %>]
         },
 
         module: {
             loaders: [
                 {
-                    test: /\.ts$/,
+                    test: /\.ts<% if(frontendType == 'React') { %>x<% } %>$/,
                     loader: 'ts-loader'
                 },            {
                     test: /\.css$/,
                     loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
-                },<% if(templateEngine == true) { %>
+                },<% if(templateEngine == true && frontendType == 'Angular') { %>
                 {
                     test: /\.(jade|pug)$/,
                     loader: 'pug-loader'

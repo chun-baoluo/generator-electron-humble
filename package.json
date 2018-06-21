@@ -1,7 +1,7 @@
 {
   "name": "generator-electron-humble",
-  "version": "2.4.1",
-  "description": "Humble electron generator. Electron + Webpack + Angular v2 + Typescript + Less/Sass/Stylus + Pug (Jade)",
+  "version": "3.0.0",
+  "description": "Humble electron generator. Electron + Webpack + Angular X/React + Typescript + Less/Sass/Stylus + Pug (Jade)",
   "files": [
     "generators"
   ],
@@ -9,6 +9,7 @@
   "keywords": [
     "angular 2",
     "angular x",
+    "boilerplate",
     "electron",
     "electron-angular",
     "electron-angular2",
@@ -20,10 +21,13 @@
     "electron humble",
     "generator",
     "generator-electron-humble",
+    "react",
+    "preact",
     "typescript",
-    "yeoman electron",
-    "yeoman angular",
     "yeoman",
+    "yeoman angular",
+    "yeoman electron",
+    "yeoman react",
     "yeoman-generator"
   ],
   "dependencies": {
