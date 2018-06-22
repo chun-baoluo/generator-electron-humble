@@ -1,8 +1,8 @@
 # generator-electron-humble
 
-![alt tag](https://raw.githubusercontent.com/bakharevpavel/generator-electron-humble/master/generators/app/templates/dev/app/home/icon.png)
+![alt tag](https://raw.githubusercontent.com/bakharevpavel/generator-electron-humble/master/generators/app/templates/dev/common/icon.png)
 
-Humble electron generator for Yeoman. Electron + Webpack + Angular v2 + Typescript + Less/Sass/Stylus + Pug (Jade)
+Humble electron generator for Yeoman. Electron + Webpack + Angular X/React + Typescript + Less/Sass/Stylus + Pug (Jade)
 
 ## Installation
 
