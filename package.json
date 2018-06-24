@@ -1,6 +1,6 @@
 {
   "name": "generator-electron-humble",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Humble electron generator. Electron + Webpack + Angular X/React + Typescript + Less/Sass/Stylus + Pug (Jade)",
   "files": [
     "generators"

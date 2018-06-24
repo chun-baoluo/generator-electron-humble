@@ -181,6 +181,17 @@ module.exports = class extends Generator {
                 this.templatePath('./dev/common/icon.png'),
                 this.destinationPath('./dev/app/home/icon.png')
             );
+
+            this.fs.copy(
+                this.templatePath('./test/Component.spec.ts'),
+                this.destinationPath('./test/Component.spec.ts')
+            );
+
+            this.fs.copyTpl(
+                this.templatePath('./karma.conf.js'),
+                this.destinationPath('./karma.conf.js'),
+                this.data
+            );
         } else if(this.data.frontendType == 'React') {
 
             if(this.data.cssPreprocessor == 'Stylus') {

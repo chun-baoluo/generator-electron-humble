@@ -5,22 +5,23 @@
     "start": "./app/node_modules/electron/dist/electron ./app/index.js prod",
     "start:dev": "./app/node_modules/electron/dist/electron ./app/index.js dev",
     "start:prod": "./app/node_modules/electron/dist/electron ./app/index.js prod",
-    "build:dev": "webpack-dev-server --progress --colors --env.type=dev",
-    "build:prod": "webpack --config ./webpack.config.js --progress --colors --profile --bail --env.type=prod",
-    "tslint": "tslint -c ./tslint.json 'dev/**/*.ts'; exit 0;"
+    "build:dev": "webpack-dev-server --progress --colors --env.type=dev --mode=development",
+    "build:prod": "webpack --config ./webpack.config.js --progress --colors --profile --bail --env.type=prod --mode=production",
+    "tslint": "tslint -c ./tslint.json 'dev/**/*.ts'; exit 0;"<% if(frontendType == 'Angular') { %>,
+    "test": "./node_modules/.bin/karma start"<% } %>
   },
   "dependencies": {<% if(frontendType == 'Angular') { %>
-    "@angular/animations": "^5.1.3",
-    "@angular/common": "^5.1.3",
-    "@angular/compiler": "^5.1.3",
-    "@angular/core": "^5.1.3",
-    "@angular/forms": "^5.1.3",
-    "@angular/http": "^5.1.3",
-    "@angular/platform-browser": "^5.1.3",
-    "@angular/platform-browser-dynamic": "^5.1.3",
-    "@angular/router": "^5.1.3",<% if(materialDesign) { %>
-    "@angular/material": "^5.0.3",
-    "@angular/cdk": "^5.0.3",
+    "@angular/animations": "^6.0.6",
+    "@angular/common": "^6.0.6",
+    "@angular/compiler": "^6.0.6",
+    "@angular/core": "^6.0.6",
+    "@angular/forms": "^6.0.6",
+    "@angular/http": "^6.0.6",
+    "@angular/platform-browser": "^6.0.6",
+    "@angular/platform-browser-dynamic": "^6.0.6",
+    "@angular/router": "^6.0.6",<% if(materialDesign) { %>
+    "@angular/material": "^6.3.0",
+    "@angular/cdk": "^6.3.0",
     "material-design-icons": "^3.0.1",<% } %>
     "@angularclass/hmr": "^2.1.3",<% } %>
     "core-js": "^2.5.3",<% if(frontendType == 'React') { %>
@@ -28,35 +29,50 @@
     "react-dom": "^16.4.1",<% if(materialDesign) { %>
     "@material-ui/core": "^1.2.3",<% } } %>
     "reflect-metadata": "^0.1.10",
-    "rxjs": "5.5.6",
+    "rxjs": "6.2.1",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
-    "@types/core-js": "^0.9.44",
-    "@types/node": "^9.3.0",<% if(frontendType == 'React') { %>
+    "@types/core-js": "^2.5.0",
+    "@types/node": "^10.3.4",<% if(frontendType == 'React') { %>
     "@types/react": "^16.4.1",
-    "@types/react-dom": "^16.0.6",<% } %>
+    "@types/react-dom": "^16.0.6",<% } else { %>
+    "@types/chai": "4.1.3",
+    "@types/jasmine": "^2.8.8",
+    "@types/karma": "^1.7.3",
+    "@types/mocha": "^5.2.0",
+    "chai": "^4.1.2",
+    "jasmine": "^3.1.0",
+    "karma": "2.0.2",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.2",
+    "karma-mocha": "^1.3.0",
+    "karma-webpack": "3.0.0",
+    "mocha": "^5.0.5",
+    "null-loader": "^0.1.1",<% } %>
     "codelyzer": "^4.0.2",
     "css-loader": "^0.28.8",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.6",
     "loader-utils": "^1.1.0",
-    "html-webpack-plugin": "^2.30.1",<% if(templateEngine) { %>
+    "html-webpack-plugin": "^3.2.0",<% if(templateEngine) { %>
     "pug": "^2.0.0-rc.4",
     "pug-loader": "^2.3.0",<% } else { %>
-    "html-loader": "^0.5.4",<% } %>
-    "style-loader": "^0.19.1",<% if(cssPreprocessor == 'Stylus') { %>
+    "html-loader": "^0.5.5",<% } %>
+    "style-loader": "^0.21.0",<% if(cssPreprocessor == 'Stylus') { %>
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",<% } %><% if(cssPreprocessor == 'Less') { %>
-    "less": "^2.7.3",
+    "less": "^3.0.4",
     "less-loader": "^4.0.5",<% } %><% if(cssPreprocessor == 'Sass') { %>
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",<% } %>
-    "ts-loader": "^3.2.0",
+    "ts-loader": "^4.4.1",
     "tslint": "^5.8.0",
     "typescript": "^2.6.2",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.10.0"
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
   },
   "private": true
 }

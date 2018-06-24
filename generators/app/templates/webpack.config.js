@@ -6,21 +6,18 @@ module.exports = env => {
     let plugins = [
         new webpack.NoEmitOnErrorsPlugin(),
         new ExtractTextPlugin('[name].css'),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: ['app', 'vendor', 'polyfills']
-        }),
         new HtmlWebpackPlugin({
             template: <% if(templateEngine == true && frontendType == 'Angular') { %>'dev/index.pug'<% } else { %>'dev/index.html'<% } %>
-        }),
+        })<% if(frontendType == 'Angular') { %>,
         new webpack.DefinePlugin({
             PRODUCTION: JSON.stringify(env.type == 'prod')
-        }),
+        })<% } %>
     ];
 
     return {
         devServer: {
-            contentBase: __dirname  + '/app/res/',
-            hot: true
+            contentBase: __dirname  + '/app/res/'<% if(frontendType == 'Angular') { %>,
+            hot: true<% } %>
         },<% if(frontendType == 'React') { %>
 
         entry: "./dev/App.tsx",<% } else if(frontendType == 'Angular') { %>
@@ -36,7 +33,7 @@ module.exports = env => {
         },
 
         module: {
-            loaders: [
+            rules: [
                 {
                     test: /\.ts<% if(frontendType == 'React') { %>x<% } %>$/,
                     loader: 'ts-loader'
@@ -77,6 +74,19 @@ module.exports = env => {
 
         devtool: 'source-map',
 
+        optimization: {
+            splitChunks: {
+                cacheGroups: {
+                    vendor: {
+                        chunks: 'all',
+                        test: /[\\/]node_modules[\\/]/,
+                        name: 'vendor',
+                        enforce: true
+                    }
+                }
+            }
+        },
+
         output: {
             path: __dirname  + '/app/res/',
             publicPath: env.type == 'dev' ? '/' : './',
@@ -84,19 +94,10 @@ module.exports = env => {
             chunkFilename: '[id].chunk.js'
         },
 
-        plugins: env.type == 'dev' ? plugins.concat([
-            new webpack.HotModuleReplacementPlugin(),
+        plugins: env.type == 'dev' ? plugins.concat([<% if(frontendType == 'Angular') { %>
+            new webpack.HotModuleReplacementPlugin(),<% } %>
             new webpack.NamedModulesPlugin()
-        ]) : plugins.concat([
-            new webpack.optimize.UglifyJsPlugin({
-                compress: {
-                    warnings: false
-                },
-                mangle: {
-                    keep_fnames: true
-                }
-            })
-        ]),
+        ]) : plugins,
 
         watch: (env.type == 'dev')
     };
